@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyMovies.MovieDetails"
+             Title="{Binding Title}">
+    <ScrollView>
+        <RelativeLayout>
+            <Image x:Name="banner"
+                RelativeLayout.YConstraint="{ConstraintExpression 
+				    Type=RelativeToParent,
+				    Property=Y,
+				    Factor=1}"
+			    RelativeLayout.WidthConstraint="{ConstraintExpression
+				    Type=RelativeToParent,
+				    Property=Width,
+				    Factor=1}" 
+    
+                Source="{Binding BannerUrl}"/>
+            
+            <StackLayout Padding="15, 15, 15, 40" 
+                         Spacing="0"
+                         RelativeLayout.YConstraint="{ConstraintExpression 
+                                Type=RelativeToView,
+                                ElementName=banner,
+                                Property=Height,
+                                Factor=1,
+                                Constant=10}">
+            
+                <StackLayout Padding="0, 0, 10, 0" Orientation="Horizontal">
+                    <Label Text="{Binding Title}" FontSize="22" TextColor="Black" FontAttributes="Bold"/>
+                    <Label Text="{Binding VoteAverage}" FontSize="30" TextColor="#FFA81E" FontAttributes="Bold" FontFamily="" HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+                <StackLayout Padding="0, 0, 0, 25">
+                    <Label Text="{Binding Year}" FontSize="17" FontAttributes="Bold" TextColor="#F03434" />
+                </StackLayout>
+                <Label TextColor="Black" FontSize="16" Text="{Binding Description}"/>
+            </StackLayout>
+        </RelativeLayout>
+        </ScrollView>
+</ContentPage>
